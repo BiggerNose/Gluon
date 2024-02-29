@@ -1,0 +1,8 @@
+<launch>
+  <node name="depth_node" pkg="myworkcell_core" type="depth_node" output="screen"/>
+  <node name="object_tf2_broadcaster" pkg="myworkcell_core" type="object_tf2_broadcaster" output="screen"/>
+  <node name="vision_node" pkg="myworkcell_core" type="vision_node" output="screen"/>
+  <node name="myworkcell_node" pkg="myworkcell_core" type="myworkcell_node" output="screen">
+    <param name="base_frame" value="base_link"/>
+  </node>
+</launch>

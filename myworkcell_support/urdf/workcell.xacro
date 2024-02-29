@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<robot name="myworkcell" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Camera Includes -->
+  <xacro:arg name="use_nominal_extrinsics" default="true"/>
+  <xacro:arg name="add_plug" default="false" />
+  <xacro:arg name="use_mesh" default="true" />
+  <xacro:include filename="$(find myworkcell_support)/urdf/camera/_d435.urdf.xacro" />
+
+  <!-- Robot Include -->
+  <xacro:include filename="$(find myworkcell_support)/urdf/gluon.urdf.xacro" />
+
+  <link name="base_link"/>
+
+  <!-- <link name="table">
+    <visual>
+      <geometry>
+        <box size="1.0 1.0 0.05"/>
+      </geometry>
+      <material name="light_brown">
+        <color rgba="0.824 0.706 0.549 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1.0 1.0 0.05"/>
+      </geometry>
+    </collision>
+  </link> -->
+
+  <!-- Camera -->
+  <link name="camera_base_link"/>
+
+  <xacro:sensor_d435 parent="camera_base_link" use_nominal_extrinsics="$(arg use_nominal_extrinsics)" add_plug="$(arg add_plug)" use_mesh="$(arg use_mesh)">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:sensor_d435>
+
+  <!-- Robot Arm -->
+  <xacro:gluon_arm/>
+
+<joint name="base_link_to_robot" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_link1"/>
+    <origin xyz="0 0 0.5" rpy="0 0 0"/>
+  </joint>
+
+  <!-- <joint name="base_link_to_table" type="fixed">
+    <parent link="base_link"/>
+    <child link="table"/>
+    <origin xyz="0 0 0.5" rpy="0 0 0"/>
+  </joint> -->
+
+  <!-- <joint name="table_to_robot" type="fixed">
+    <parent link="table"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.0" rpy="0 0 0"/>
+  </joint> -->
+
+  <!-- <joint name="base_link_to_camera" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_base_link"/>
+    <origin xyz="0.2 0 1.3" rpy="0 1.57 0"/>
+  </joint> -->
+
+  <joint name="6_Link_to_camera" type="fixed">
+    <parent link="6_Link"/>
+    <child link="camera_base_link"/>
+    <origin xyz="0.09 0.0013 0.06" rpy="0 0 0"/>
+  </joint>
+
+
+  <joint name="6_Link_to_gripper" type="fixed">
+    <parent link="6_Link"/>
+    <child link="gripper_main"/>
+    <origin xyz="0.055 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
