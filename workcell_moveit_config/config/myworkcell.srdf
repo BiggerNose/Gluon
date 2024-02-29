@@ -1,0 +1,264 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="myworkcell">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="gluon_arm">
+        <joint name="axis_joint_1" />
+        <joint name="axis_joint_2" />
+        <joint name="axis_joint_3" />
+        <joint name="axis_joint_4" />
+        <joint name="axis_joint_5" />
+        <joint name="axis_joint_6" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="Home" group="gluon_arm">
+        <joint name="axis_joint_1" value="0" />
+        <joint name="axis_joint_2" value="0" />
+        <joint name="axis_joint_3" value="0" />
+        <joint name="axis_joint_4" value="0" />
+        <joint name="axis_joint_5" value="0" />
+        <joint name="axis_joint_6" value="0" />
+    </group_state>
+    <!-- <group_state name="look_table_pose" group="gluon_arm">
+        <joint name="axis_joint_1" value="-1.55334" />
+        <joint name="axis_joint_2" value="-0.296706" />
+        <joint name="axis_joint_3" value="1.39626" />
+        <joint name="axis_joint_4" value="1.81514" />
+        <joint name="axis_joint_5" value="1.5708" />
+        <joint name="axis_joint_6" value="-0.0523599" />
+    </group_state> -->
+    <group_state name="look_table_pose" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.5708" />
+    <joint name="axis_joint_2" value="-0.383972" />
+    <joint name="axis_joint_3" value="1.53589" />
+    <joint name="axis_joint_4" value="2.04204" />
+    <joint name="axis_joint_5" value="1.58825" />
+    <joint name="axis_joint_6" value="-0.0523599" />
+</group_state>
+
+    <group_state name="look_table_pose1" group="gluon_arm">
+        <joint name="axis_joint_1" value="-1.51844" />
+        <joint name="axis_joint_2" value="-0.471239" />
+        <joint name="axis_joint_3" value="0.331613" />
+        <joint name="axis_joint_4" value="0.925025" />
+        <joint name="axis_joint_5" value="1.53589" />
+        <joint name="axis_joint_6" value="0.0523599" />
+    </group_state>
+
+      <group_state name="approach_tray" group="gluon_arm">
+        <joint name="axis_joint_1" value="-2.0420400000491" />
+        <joint name="axis_joint_2" value="-0.174533" />
+        <joint name="axis_joint_3" value="-1.18682" />
+        <joint name="axis_joint_4" value="0.680678" />
+        <joint name="axis_joint_5" value="-1.55334" />
+        <joint name="axis_joint_6" value="-0.453786" />
+    </group_state>
+
+  <group_state name="approach_tray_one" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.466" />
+    <joint name="axis_joint_2" value="-0.0698" />
+    <joint name="axis_joint_3" value="-2.022" />
+    <joint name="axis_joint_4" value="-0.453786" />
+    <joint name="axis_joint_5" value="-1.5708" />
+    <joint name="axis_joint_6" value="-0.314159" />
+</group_state>
+
+
+  <group_state name="tray_one" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.514" />
+    <joint name="axis_joint_2" value="0.0698" />
+    <joint name="axis_joint_3" value="-2.0944" />
+    <joint name="axis_joint_4" value="-0.628" />
+    <joint name="axis_joint_5" value="-1.5708" />
+    <joint name="axis_joint_6" value="-0.401426" />
+</group_state>
+
+<group_state name="approach_tray_two" group="gluon_arm">
+    <joint name="axis_joint_1" value="-2.0944" />
+    <joint name="axis_joint_2" value="-0.244346" />
+    <joint name="axis_joint_3" value="-2.18166" />
+    <joint name="axis_joint_4" value="-0.418879" />
+    <joint name="axis_joint_5" value="-1.53589" />
+    <joint name="axis_joint_6" value="-0.488692" />
+</group_state>
+
+
+<group_state name="tray_two" group="gluon_arm">
+    <joint name="axis_joint_1" value="-2.06318" />
+    <joint name="axis_joint_2" value="-0.0872665" />
+    <joint name="axis_joint_3" value="-2.24658" />
+    <joint name="axis_joint_4" value="-0.645771" />
+    <joint name="axis_joint_5" value="-1.55334" />
+    <joint name="axis_joint_6" value="-0.453786" />
+</group_state>
+
+
+
+<group_state name="approach_tray_three" group="gluon_arm">
+    <joint name="axis_joint_1" value="-2.51327" />
+    <joint name="axis_joint_2" value="0" />
+    <joint name="axis_joint_3" value="-1.95477" />
+    <joint name="axis_joint_4" value="-0.366519" />
+    <joint name="axis_joint_5" value="-1.55334" />
+    <joint name="axis_joint_6" value="-0.593412" />
+</group_state>
+
+    
+    <group_state name="tray_three" group="gluon_arm">
+    <joint name="axis_joint_1" value="-2.53073" />
+    <joint name="axis_joint_2" value="0.0349" />
+    <joint name="axis_joint_3" value="-2.0608" />
+    <joint name="axis_joint_4" value="-0.523599" />
+    <joint name="axis_joint_5" value="-1.55334" />
+    <joint name="axis_joint_6" value="-0.593412" />
+</group_state>
+ 
+
+  <group_state name="place_one_10" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.58825" />
+    <joint name="axis_joint_2" value="-1.11701" />
+    <joint name="axis_joint_3" value="1.0472" />
+    <joint name="axis_joint_4" value="0.610865" />
+    <joint name="axis_joint_5" value="1.62316" />
+    <joint name="axis_joint_6" value="0.802851" />
+</group_state>
+
+
+ <group_state name="place_two_10" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.0821" />
+    <joint name="axis_joint_2" value="-1.01229" />
+    <joint name="axis_joint_3" value="1.18682" />
+    <joint name="axis_joint_4" value="0.680678" />
+    <joint name="axis_joint_5" value="1.6057" />
+    <joint name="axis_joint_6" value="1.22173" />
+</group_state>
+
+
+   <group_state name="place_three_10" group="gluon_arm">
+    <joint name="axis_joint_1" value="-0.750491" />
+    <joint name="axis_joint_2" value="-1.39626" />
+    <joint name="axis_joint_3" value="0.418879" />
+    <joint name="axis_joint_4" value="0.279253" />
+    <joint name="axis_joint_5" value="1.64061" />
+    <joint name="axis_joint_6" value="1.20096" />
+</group_state>
+
+<group_state name="place_one_15" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.58825" />
+    <joint name="axis_joint_2" value="-0.925025" />
+    <joint name="axis_joint_3" value="1.03038" />
+    <joint name="axis_joint_4" value="0.384956" />
+    <joint name="axis_joint_5" value="1.62316" />
+    <joint name="axis_joint_6" value="0.802851" />
+</group_state>
+
+<group_state name="place_two_15" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.0821" />
+    <joint name="axis_joint_2" value="-0.820305" />
+    <joint name="axis_joint_3" value="1.18682" />
+    <joint name="axis_joint_4" value="0.488692" />
+    <joint name="axis_joint_5" value="1.6057" />
+    <joint name="axis_joint_6" value="1.22173" />
+</group_state>
+
+<group_state name="place_three_15" group="gluon_arm">
+    <joint name="axis_joint_1" value="-0.767945" />
+    <joint name="axis_joint_2" value="-1.23918" />
+    <joint name="axis_joint_3" value="0.314159" />
+    <joint name="axis_joint_4" value="0.0174533" />
+    <joint name="axis_joint_5" value="1.64061" />
+    <joint name="axis_joint_6" value="1.18682" />
+</group_state>
+
+
+<group_state name="shelf_pose" group="gluon_arm">
+    <joint name="axis_joint_1" value="-0.959931" />
+    <joint name="axis_joint_2" value="0.20944" />
+    <joint name="axis_joint_3" value="2.35619" />
+    <joint name="axis_joint_4" value="0.610865" />
+    <joint name="axis_joint_5" value="1.62316" />
+    <joint name="axis_joint_6" value="0.680678" />
+</group_state>
+
+
+<group_state name="pre_shelf_pose" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.50098" />
+    <joint name="axis_joint_2" value="-0.15708" />
+    <joint name="axis_joint_3" value="0.174533" />
+    <joint name="axis_joint_4" value="-1.18682" />
+    <joint name="axis_joint_5" value="1.62316" />
+    <joint name="axis_joint_6" value="0.0349066" />
+</group_state>
+
+<group_state name="nav_pose_old" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.58825" />
+    <joint name="axis_joint_2" value="0.837758" />
+    <joint name="axis_joint_3" value="2.53073" />
+    <joint name="axis_joint_4" value="2.44346" />
+    <joint name="axis_joint_5" value="1.58825" />
+    <joint name="axis_joint_6" value="-0.0349066" />
+</group_state>
+
+<group_state name="nav_pose" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.58825" /> <!-- -91 degrees to radians -->
+    <joint name="axis_joint_2" value="1.39626" /> <!-- 80 degrees to radians -->
+    <joint name="axis_joint_3" value="2.32129" /> <!-- 133 degrees to radians -->
+    <joint name="axis_joint_4" value="0.418879" /> <!-- 24 degrees to radians -->
+    <joint name="axis_joint_5" value="1.5708" /> <!-- 90 degrees to radians -->
+    <joint name="axis_joint_6" value="0.0349066" /> <!-- 2 degrees to radians -->
+</group_state>
+
+
+ 
+ <group_state name="place_shelf" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.514" />
+    <joint name="axis_joint_2" value="-0.628" />
+    <joint name="axis_joint_3" value="0.6807" />
+    <joint name="axis_joint_4" value="0.5411" />
+    <joint name="axis_joint_5" value="1.5882" />
+    <joint name="axis_joint_6" value="0.0698" />
+</group_state>
+
+<group_state name="place_shelf_two" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.0821" />
+    <joint name="axis_joint_2" value="-0.680678" />
+    <joint name="axis_joint_3" value="0.523599" />
+    <joint name="axis_joint_4" value="0.384956" />
+    <joint name="axis_joint_5" value="1.27409" />
+    <joint name="axis_joint_6" value="0.384956" />
+</group_state>
+
+<group_state name="new_look_table_pose" group="gluon_arm">
+    <joint name="axis_joint_1" value="-1.50098" />
+    <joint name="axis_joint_2" value="-0.40143" />
+    <joint name="axis_joint_3" value="0.17453" />
+    <joint name="axis_joint_4" value="-0.92503" />
+    <joint name="axis_joint_5" value="1.63051" />
+    <joint name="axis_joint_6" value="0.03491" />
+</group_state>
+
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <!-- <end_effector name="gripper_main" parent_link="6_link" group="gluon_arm" /> -->
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="FixedBase" type="fixed" parent_frame="map" child_link="map" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="1_Link" link2="2_Link" reason="Adjacent" />
+    <disable_collisions link1="1_Link" link2="base_link1" reason="Adjacent" />
+    <disable_collisions link1="2_Link" link2="3_Link" reason="Adjacent" />
+    <disable_collisions link1="2_Link" link2="base_link1" reason="Never" />
+    <disable_collisions link1="3_Link" link2="4_Link" reason="Adjacent" />
+    <disable_collisions link1="3_Link" link2="5_Link" reason="Never" />
+    <disable_collisions link1="3_Link" link2="6_Link" reason="Never" />
+    <disable_collisions link1="4_Link" link2="5_Link" reason="Adjacent" />
+    <disable_collisions link1="4_Link" link2="6_Link" reason="Never" />
+    <disable_collisions link1="5_Link" link2="6_Link" reason="Adjacent" />
+    <disable_collisions link1="5_Link" link2="camera_link" reason="Never" />
+    <disable_collisions link1="6_Link" link2="camera_link" reason="Adjacent" />
+</robot>
